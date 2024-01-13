@@ -1,0 +1,32 @@
+---
+import BannerButton from "./BannerButton.astro";
+interface Props {
+  altImage: string;
+  imageUrl?: string;
+  description: string;
+  buttonTitle?: string;
+  colorBack?: string;
+  borderColor?: string
+}
+
+const {
+  imageUrl,
+  description,
+  buttonTitle = "default",
+  altImage,
+  colorBack,
+  borderColor='border-white',
+} = Astro.props;
+---
+
+<div class=`h-full w-full flex flex-col ${colorBack}`>
+  <div class='flex items-center'>
+    <img src={imageUrl} alt={altImage} class="w-full" />
+  </div>
+  <div class=`flex items-center justify-center p-10 text-white h-full`>
+    <div class="text-center w-10/12 lg:w-3/5 flex flex-col gap-6">
+      <h3 class="text-[1.20rem]">{description}</h3>
+      {buttonTitle !== "default" ? <BannerButton title={buttonTitle} borderColor={borderColor} /> : null}
+    </div>
+  </div>
+</div>

@@ -1,27 +1,45 @@
 ---
+import BannerButton from "./BannerButton.astro";
 interface Props {
   titleBanner: string;
   altImage: string;
   imageUrl?: string;
   description: string;
   buttonTitle?: string;
-  color?: string;
+  colorBack?: string;
+  reverse?: boolean;
+  textColor?: string;
+  borderColor?: string;
 }
 
-const { titleBanner, imageUrl, description, buttonTitle, altImage, color } =
-  Astro.props;
+const {
+  titleBanner,
+  imageUrl,
+  description,
+  buttonTitle = "default",
+  altImage,
+  colorBack,
+  textColor = "text-white",
+  reverse = false,
+  borderColor = "border-white",
+} = Astro.props;
 ---
 
-<div class=`h-auto w-full grid grid-cols-1 md:grid-cols-2 bg-[#${color}]`>
-  <div class="flex items-center">
-    <img src={imageUrl} alt={altImage} />
+<div class=` h-auto w-full grid grid-cols-1 md:grid-cols-2 ${colorBack}`>
+  <div class=`flex items-center ${reverse ? 'md:order-2 justify-end' : ''}`>
+    <img src={imageUrl} alt={altImage} class="max-h-[25rem]" />
   </div>
-  <div class="flex items-center justify-center p-10">
-    <div class="text-center w-10/12 lg:w-3/5 flex flex-col  gap-6">
+  <div
+    class=`flex items-center justify-center p-10 ${textColor} animate-fade animate-fill-backwards animate-ease-linear`
+  >
+    <div class="text-center w-10/12 lg:w-3/5 flex flex-col gap-6">
       <h1 class="text-2xl lg:text-3xl font-bold">{titleBanner}</h1>
-      <h3 class="text-[1.20rem] ">{description}</h3>
-      {buttonTitle ?? <button>{buttonTitle}</button>}
+      <h3 class="text-[1.20rem]">{description}</h3>
+      {
+        buttonTitle !== "default" ? (
+          <BannerButton title={buttonTitle} borderColor={borderColor} />
+        ) : null
+      }
     </div>
   </div>
-
 </div>

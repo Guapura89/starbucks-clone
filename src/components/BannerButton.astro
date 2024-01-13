@@ -1,0 +1,10 @@
+---
+interface Props {
+  title: string;
+  borderColor?: string
+}
+
+const {title, borderColor} = Astro.props;
+---
+
+<button class=`border-2 ${borderColor} font-bold w-full rounded-full hover:opacity-75 p-1`>{title}</button>

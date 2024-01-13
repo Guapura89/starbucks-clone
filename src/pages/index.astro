@@ -1,24 +1,93 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Banner from "../components/Banner.astro";
+import BannerHorizontal from "../components/BannerHorizontal.astro";
 ---
 
 <Layout title="Homepage | Starbucks">
-  <main class="w-full mx-auto 2xl:w-11/12 flex flex-col gap-y-10">
+  <main class="w-full mx-auto 2xl:w-11/12 flex flex-col gap-10 mb-10">
+    <!-- Chocolate banner -->
     <Banner
-      titleBanner="ENAMÓRATE DE CINNAMON CHOCOLATE TRUFFLE"
-      description="Empieza el año con tu nuevo favorito y disfruta su sabor a canela y chocolate."
+    colorBack="bg-[#d5a286]"
+    titleBanner="ENAMÓRATE DE CINNAMON CHOCOLATE TRUFFLE"
+    description="Empieza el año con tu nuevo favorito y disfruta su sabor a canela y chocolate."
 			imageUrl="./chocolate.png"
 			altImage="chocolate-image"
-      color="d5a286"
-      buttonTitle="Hello"
+      textColor="text-[#1c1511]"
     />
+    <!-- Vainilla banner -->
     <Banner
-      titleBanner="ENAMÓRATE DE CINNAMON CHOCOLATE TRUFFLE"
-      description="Empieza el año con tu nuevo favorito y disfruta su sabor a canela y chocolate."
-			imageUrl="./chocolate.png"
-			altImage="chocolate-image"
-      color="d5a286"
+      colorBack="bg-[#007270]"
+      titleBanner="TEMPORADA DE CLÁSICOS"
+      description="Pide tu Vainilla Latte caliente o helado y disfruta de tu favorito. Te va a encantar su sabor."
+			imageUrl="./vainilla.png"
+			altImage="vainilla-image"
+      reverse={true}
+      />
+      <!-- Cajeta banner -->
+      <Banner
+      colorBack="bg-[#dbdb44]"
+      titleBanner="NUEVOS COMIENZOS SABOR CAJETA"
+      description="Este invierno es la excusa perfecta para compartir un Cajeta Latte o Frappuccino® con amigos y familia. ¡Te esperamos!"
+			imageUrl="./cajeta.png"
+			altImage="cajeta-image"
+      textColor="text-[#007270]"
+      />
+      <!-- Mexico banner -->
+      <Banner
+      colorBack="bg-[#007270]"
+      titleBanner="UN GRAN CAFÉ PARA UNA GRAN TAZA"
+      description="Con notas cítricas y aromas florales harán que tu taza sea perfecta para iniciar tu día."
+			imageUrl="./mexico.png"
+			altImage="mexico-image"
+      reverse={true}
     />
-  </main>
-</Layout>
+    <!-- Rewards banner -->
+    <Banner
+      colorBack="bg-[#1e3933]"
+      titleBanner="RECOMPENSAS EN TU BEBIDA FAVORITA"
+      description="Sé parte de Starbucks Rewards y obtén más café gratis, promociones exclusivas, accesos a productos antes que nadie y más."
+			imageUrl="./rewards.png"
+			altImage="rewards-image"
+      buttonTitle="Descarga la app y regístrate"
+      />
+      <!-- Pagos banner -->
+      <Banner
+      colorBack="bg-[#d4e9e2]"
+      titleBanner="RECOMPENSAS EN TU BEBIDA FAVORITA"
+      description="Sé parte de Starbucks Rewards y obtén más café gratis, promociones exclusivas, accesos a productos antes que nadie y más."
+			imageUrl="./rewards_2.png"
+			altImage="rewards2-image"
+      textColor="text-[#1e3933]"
+      reverse={true}
+      buttonTitle="Más Información"
+      borderColor="border-[#1e3933]"
+    />
+    <!-- Termos banner -->
+    <Banner
+      colorBack="bg-[#8e6db5]"
+      titleBanner="TU VASO HACE LA DIFERENCIA"
+      description="Trae tu vaso o termo favorito y obtén $8 de descuento en tu bebida."
+			imageUrl="./termo.png"
+			altImage="termo-image"
+      />
+      
+      <div class="h-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+        <BannerHorizontal
+        colorBack="bg-[#dbdb44]"
+        description="Consulta los eventos más recientes."
+        buttonTitle="Ver más"
+        imageUrl="./news.png"
+        altImage="news-image"
+      />
+
+      <BannerHorizontal
+      colorBack="bg-[#007270]"
+        description="Términos y condiciones."
+        buttonTitle="Aquí"
+        imageUrl="./promo.png"
+        altImage="promo-image"
+        />
+        <!-- <Footer slot="footer" /> -->
+      </main>
+  </Layout>
