@@ -1,9 +1,10 @@
 ---
 import { SewingPin } from "@astropub/icons";
+import { DragHandleHorizontal, TextAlignJustify } from "@astropub/icons";
 ---
 
-<nav class="h-[12%] relative bg-white drop-shadow-md">
-  <div class="w-full sm:w-10/12 px-4 h-full grid grid-cols-2 mx-auto">
+<header class="h-[12%] relative bg-white drop-shadow-md">
+  <nav class="w-full sm:w-10/12 px-4 h-full grid grid-cols-2 mx-auto">
     <div class="flex justify-start">
       <ul class="flex gap-8 items-center font-bold">
         <li>
@@ -233,10 +234,10 @@ import { SewingPin } from "@astropub/icons";
         <li><a href="/">Rewards</a></li>
       </ul>
     </div>
-    <div>
+    <div class="hidden lg:block">
       <ul class="flex gap-4 items-center h-full justify-end font-bold">
         <li>
-          <a href="/" class="flex items-center gap-2"
+          <a href="/" class="flex items-center gap-2 hover:opacity-75"
             ><svg
               width="20px"
               height="28px"
@@ -279,5 +280,8 @@ import { SewingPin } from "@astropub/icons";
         </li>
       </ul>
     </div>
-  </div>
-</nav>
+    <div class="lg:hidden flex items-center justify-end">
+      <button><TextAlignJustify size="35" fill-opacity={50} /></button>
+    </div>
+  </nav>
+</header>
